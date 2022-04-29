@@ -21,6 +21,8 @@ import {
   NativeScrollEvent,
   TextInput,
   View,
+  NativeEventEmitter,
+  EmitterSubscription,
 } from 'react-native';
 
 const img = require('./src/asset/ruler.png');
@@ -142,19 +144,39 @@ const reducer = (state, action) => {
   }
 };
 
+function AccelerometerObserver() {
+  const [shouldObserve, setShouldObserve] = useState(true);
+  const eventListener = useRef<EmitterSubscription | undefined>(undefined);
+
+  useEffect(() => {
+    if (shouldObserve) {
+      console.log('STARTING');
+      const eventEmitter = new NativeEventEmitter(NativeModules.CalendarModule);
+      eventListener.current = eventEmitter.addListener(
+        'Accelerometer',
+        event => {
+          console.log(event);
+        },
+      );
+      return () => eventListener.current?.remove();
+    } else if (!shouldObserve) {
+      eventListener.current?.remove();
+    }
+  }, [shouldObserve]);
+
+  return (
+    <>
+      <Button title="start events" onPress={() => setShouldObserve(true)} />
+      <Button title="stop events" onPress={() => setShouldObserve(false)} />
+    </>
+  );
+}
+
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, {
-    value: 0,
-    lastMoveWasText: undefined,
-  });
-  console.log('STATE', state);
-  const {value, lastMoveWasText} = state;
-  const updateForType = value => dispatch({type: 'text', value});
   return (
     <SafeAreaView>
+      <AccelerometerObserver />
       <Text>Old Architecture</Text>
-      <ControlledInput value={value} setValue={updateForType} />
-      <ScrollMeasure reducerState={state} dispatch={dispatch} />
     </SafeAreaView>
   );
 };
