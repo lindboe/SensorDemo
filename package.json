@@ -1,0 +1,31 @@
+{
+    "name": "accel-lib",
+    "version": "0.0.1",
+    "description": "Showcase Turbomodule with backward compatibility",
+    "react-native": "src/index",
+    "source": "src/index",
+    "files": [
+        "src",
+        "android",
+        "ios",
+        "accel-lib.podspec",
+        "!android/build",
+        "!ios/build",
+        "!**/__tests__",
+        "!**/__fixtures__",
+        "!**/__mocks__"
+    ],
+    "keywords": ["react-native", "ios", "android"],
+    "repository": "https://github.com/lindboe/accel-lib",
+    "author": "Lizzi Lindboe lindboe@users.noreply.github.com (https://github.com/lindboe)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/lindboe/accel-lib/issues"
+    },
+    "homepage": "https://github.com/lindboe/accel-lib#readme",
+    "devDependencies": {},
+    "peerDependencies": {
+        "react": "*",
+        "react-native": "*"
+    }
+}
