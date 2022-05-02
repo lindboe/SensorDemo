@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class AccelerometerModule extends ReactContextBaseJavaModule {
+
     public static final String NAME = "Accelerometer";
 
     AccelerometerModule(ReactApplicationContext context) {
