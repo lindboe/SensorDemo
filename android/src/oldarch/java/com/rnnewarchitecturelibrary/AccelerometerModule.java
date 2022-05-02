@@ -11,19 +11,17 @@ import java.util.HashMap;
 
 public class AccelerometerModule extends ReactContextBaseJavaModule {
 
-    public static final String NAME = "Accelerometer";
-
     AccelerometerModule(ReactApplicationContext context) {
         super(context);
     }
 
     @Override
     public String getName() {
-        return NAME;
+        return AccelerometerModuleImpl.NAME;
     }
 
     @ReactMethod
     public void add(int a, int b, Promise promise) {
-        promise.resolve(a + b);
+      AccelerometerModuleImpl.add(a, b, promise);
     }
 }

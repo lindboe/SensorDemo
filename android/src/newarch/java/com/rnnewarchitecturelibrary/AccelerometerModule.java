@@ -12,8 +12,6 @@ import java.util.HashMap;
 
 public class AccelerometerModule extends NativeAccelerometerSpec {
 
-    public static final String NAME = "Accelerometer";
-
     AccelerometerModule(ReactApplicationContext context) {
         super(context);
     }
@@ -21,11 +19,11 @@ public class AccelerometerModule extends NativeAccelerometerSpec {
     @Override
     @NonNull
     public String getName() {
-        return NAME;
+        return AccelerometerModuleImpl.NAME;
     }
 
     @Override
     public void add(double a, double b, Promise promise) {
-        promise.resolve(a + b);
+      AccelerometerModuleImpl.add(a, b, promise);
     }
 }

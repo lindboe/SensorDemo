@@ -19,7 +19,7 @@ public class AccelerometerPackage extends TurboReactPackage {
     @Nullable
     @Override
     public NativeModule getModule(String name, ReactApplicationContext reactContext) {
-        if (name.equals(AccelerometerModule.NAME)) {
+        if (name.equals(AccelerometerModuleImpl.NAME)) {
             return new AccelerometerModule(reactContext);
         } else {
             return null;
@@ -32,10 +32,10 @@ public class AccelerometerPackage extends TurboReactPackage {
             final Map<String, ReactModuleInfo> moduleInfos = new HashMap<>();
             boolean isTurboModule = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED;
             moduleInfos.put(
-                    AccelerometerModule.NAME,
+                    AccelerometerModuleImpl.NAME,
                     new ReactModuleInfo(
-                            AccelerometerModule.NAME,
-                            AccelerometerModule.NAME,
+                            AccelerometerModuleImpl.NAME,
+                            AccelerometerModuleImpl.NAME,
                             false, // canOverrideExistingModule
                             false, // needsEagerInit
                             true, // hasConstants
@@ -68,7 +68,7 @@ public class AccelerometerPackage extends TurboReactPackage {
 //   @Override
 //   public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
 //       List<NativeModule> modules = new ArrayList<>();
-//       modules.add(new AccelerometerModule(reactContext));
+//       modules.add(new AccelerometerModuleImpl(reactContext));
 //       return modules;
 //   }
 // 

@@ -4,7 +4,7 @@ buildscript {
     }
     repositories {
         google()
-    gradlePluginPortal()
+        gradlePluginPortal()
     }
     dependencies {
         classpath("com.android.tools.build:gradle:7.0.4")
@@ -51,12 +51,13 @@ repositories {
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
+    implementation 'org.jetbrains:annotations:15.0'
 }
 
 if (isNewArchitectureEnabled()) {
     react {
         jsRootDir = file("../src/")
-        libraryName = "calculator"
+        libraryName = "accelerometer"
         codegenJavaPackageName = "com.rnnewarchitecturelibrary"
     }
 }

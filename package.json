@@ -15,7 +15,11 @@
         "!**/__fixtures__",
         "!**/__mocks__"
     ],
-    "keywords": ["react-native", "ios", "android"],
+    "keywords": [
+        "react-native",
+        "ios",
+        "android"
+    ],
     "repository": "https://github.com/lindboe/accel-lib",
     "author": "Lizzi Lindboe lindboe@users.noreply.github.com (https://github.com/lindboe)",
     "license": "MIT",
@@ -23,7 +27,9 @@
         "url": "https://github.com/lindboe/accel-lib/issues"
     },
     "homepage": "https://github.com/lindboe/accel-lib#readme",
-    "devDependencies": {},
+    "devDependencies": {
+        "@types/react-native": "^0.67.6"
+    },
     "peerDependencies": {
         "react": "*",
         "react-native": "*"
