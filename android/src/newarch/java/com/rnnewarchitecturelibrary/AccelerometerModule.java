@@ -1,6 +1,12 @@
 package com.rnnewarchitecturelibrary;
 
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorManager;
+
 import androidx.annotation.NonNull;
+
+import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -11,9 +17,13 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class AccelerometerModule extends NativeAccelerometerSpec {
+    private final ReactApplicationContext reactContext;
+    private final AccelerometerModuleImpl impl;
 
     AccelerometerModule(ReactApplicationContext context) {
         super(context);
+        this.reactContext = context;
+        this.impl = new AccelerometerModuleImpl(context);
     }
 
     @Override
@@ -23,7 +33,12 @@ public class AccelerometerModule extends NativeAccelerometerSpec {
     }
 
     @Override
-    public void add(double a, double b, Promise promise) {
-      AccelerometerModuleImpl.add(a, b, promise);
+    public void addListener(String eventName) {
+      impl.addListener(eventName);
+    }
+
+    @Override
+    public void removeListeners(double count) {
+        impl.removeListeners();
     }
 }

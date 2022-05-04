@@ -1,16 +1,15 @@
 package com.rnnewarchitecturelibrary;
 
+import android.util.Log;
+
 import androidx.annotation.Nullable;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.module.model.ReactModuleInfo;
 import com.facebook.react.module.model.ReactModuleInfoProvider;
 import com.facebook.react.TurboReactPackage;
-import com.facebook.react.uimanager.ViewManager;
+import com.rnnewarchitecturelibrary.AccelerometerModule;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -20,7 +19,10 @@ public class AccelerometerPackage extends TurboReactPackage {
     @Override
     public NativeModule getModule(String name, ReactApplicationContext reactContext) {
         if (name.equals(AccelerometerModuleImpl.NAME)) {
-            return new AccelerometerModule(reactContext);
+            Log.e("meme", "attempting load");
+            AccelerometerModule foo = new AccelerometerModule(reactContext);
+            Log.e("meme", "loaded module");
+            return foo;
         } else {
             return null;
         }

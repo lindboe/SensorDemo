@@ -10,9 +10,14 @@ import java.util.Map;
 import java.util.HashMap;
 
 public class AccelerometerModule extends ReactContextBaseJavaModule {
+    private final ReactApplicationContext reactContext;
+    private final AccelerometerModuleImpl impl;
 
     AccelerometerModule(ReactApplicationContext context) {
         super(context);
+        Log.e("meme", "init old");
+        this.reactContext = context;
+        this.impl = new AccelerometerModuleImpl(context);
     }
 
     @Override
@@ -21,7 +26,12 @@ public class AccelerometerModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void add(int a, int b, Promise promise) {
-      AccelerometerModuleImpl.add(a, b, promise);
+    public void addListener(String eventName) {
+        impl.addListener(eventName);
+    }
+
+    @ReactMethod
+    public void removeListeners(double count) {
+        impl.removeListeners();
     }
 }
