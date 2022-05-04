@@ -15,7 +15,6 @@ public class AccelerometerModule extends ReactContextBaseJavaModule {
 
     AccelerometerModule(ReactApplicationContext context) {
         super(context);
-        Log.e("meme", "init old");
         this.reactContext = context;
         this.impl = new AccelerometerModuleImpl(context);
     }
