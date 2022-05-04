@@ -19,9 +19,7 @@ public class AccelerometerPackage extends TurboReactPackage {
     @Override
     public NativeModule getModule(String name, ReactApplicationContext reactContext) {
         if (name.equals(AccelerometerModuleImpl.NAME)) {
-            Log.e("meme", "attempting load");
             AccelerometerModule foo = new AccelerometerModule(reactContext);
-            Log.e("meme", "loaded module");
             return foo;
         } else {
             return null;

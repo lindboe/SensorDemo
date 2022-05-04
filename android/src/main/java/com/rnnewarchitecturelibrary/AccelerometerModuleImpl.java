@@ -40,7 +40,7 @@ public class AccelerometerModuleImpl implements SensorEventListener {
     }
 
         public void addListener(String eventName) {
-            sensorManager.registerListener(this, sensor, 10000);
+            sensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_FASTEST);
         }
 
         public void removeListeners() {
