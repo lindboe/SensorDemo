@@ -25,16 +25,10 @@ function AccelerometerObserver() {
         'Accelerometer',
         event => {
           console.log(event);
-          const {lastX} = xData.current;
-          if (lastX === undefined || lastX === event.x) {
-            xData.current = {lastX: event.x, xChanged: true};
-          } else if (event.x < lastX) {
-            console.log('LEFT');
-            xData.current = {lastX: event.x, xChanged: true};
-            setDirection('left');
-          } else if (event.x > lastX) {
-            xData.current = {lastX: event.x, xChanged: false};
-            setDirection('right');
+          if (event.x === 0) {
+            setDirection('Not moving')
+          } else {
+            setDirection('moving')
           }
         },
       );
@@ -57,7 +51,7 @@ const App = () => {
   return (
     <SafeAreaView>
       <AccelerometerObserver />
-      <Text>Old Architecture</Text>
+      <Text>New Architecture</Text>
     </SafeAreaView>
   );
 };
