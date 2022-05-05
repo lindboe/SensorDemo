@@ -1,9 +1,6 @@
-import { NativeModules } from 'react-native'
+import Accelerometer from './Accelerometer';
+import * as demo from './Demo';
 
-const isTurboModuleEnabled = global.__turboModuleProxy != null;
+export const Demo = demo;
 
-const accelerometer = isTurboModuleEnabled ?
-require("./NativeAccelerometer").default :
-NativeModules.Accelerometer;
-
-export default accelerometer;
+export default {...demo, Accelerometer};
